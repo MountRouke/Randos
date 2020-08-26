@@ -1,8 +1,8 @@
 from gym_derk.envs import DerkEnv
+import logging
+logging.basicConfig(level = logging.INFO)
 
 env = DerkEnv(
-  executable_path="chromium",
-  game_log=True,
   mode='battle'
 )
 
