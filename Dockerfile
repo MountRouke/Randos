@@ -12,4 +12,4 @@ RUN chmod +x start.sh
 
 ENV DERK_CHROME_EXECUTABLE chromium
 
-CMD start.sh
+CMD ["/start.sh"]
