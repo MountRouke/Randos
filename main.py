@@ -3,7 +3,8 @@ import logging
 logging.basicConfig(level = logging.INFO)
 
 env = DerkEnv(
-  mode='battle'
+  mode='battle',
+  safe_reset=True
 )
 
 while True:
