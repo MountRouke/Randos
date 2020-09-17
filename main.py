@@ -1,9 +1,14 @@
 from gym_derk.envs import DerkEnv, EpisodeResetError
+from argparse import ArgumentParser
 import logging
 logging.basicConfig(level = logging.INFO)
 
+parser = ArgumentParser()
+parser.add_argument("-s", "--serve", action="store_true", dest="serve", default=False)
+args = parser.parse_args()
+
 env = DerkEnv(
-  server_port=8789
+  server_port=8789 if args.serve else None
 )
 
 while True:
