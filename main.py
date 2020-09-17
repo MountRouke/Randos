@@ -1,8 +1,10 @@
-from gym_derk.envs import DerkEnv, BattleConnectionError
+from gym_derk.envs import DerkEnv, EpisodeResetError
 import logging
 logging.basicConfig(level = logging.INFO)
 
-env = DerkEnv()
+env = DerkEnv(
+  server_port=8789
+)
 
 while True:
   try:
@@ -14,6 +16,6 @@ while True:
       if all(done_n):
         print("Episode finished")
         break
-  except BattleConnectionError:
-    print('Connection lost during battle')
+  except EpisodeResetError:
+    print('Episode reset')
 env.close()

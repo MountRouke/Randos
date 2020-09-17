@@ -1,15 +1,10 @@
-FROM debian:stable
+FROM python:3
 
-RUN apt-get update && apt-get install -y \
-    python3 python3-pip curl unzip libgconf-2-4 \
-    xvfb chromium
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip3 install gym-derk==0.3.18
+COPY main.py ./
 
-COPY main.py main.py
-COPY start.sh start.sh
-RUN chmod +x start.sh
+EXPOSE 8789
 
-ENV DERK_CHROME_EXECUTABLE chromium
-
-CMD ["/start.sh"]
+CMD [ "python", "./main.py" ]
