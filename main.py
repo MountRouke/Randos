@@ -4,11 +4,11 @@ import logging
 logging.basicConfig(level = logging.INFO)
 
 parser = ArgumentParser()
-parser.add_argument("-s", "--serve", action="store_true", dest="serve", default=False)
+parser.add_argument("-s", "--server", action="store_true", dest="server", default=False)
 args = parser.parse_args()
 
 env = DerkEnv(
-  mode="server" if args.serve else None
+  mode="server" if args.server else None
 )
 
 while True:

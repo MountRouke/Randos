@@ -7,4 +7,4 @@ COPY main.py ./
 
 EXPOSE 8789
 
-CMD [ "python", "./main.py", "--serve"]
+CMD [ "python", "./main.py", "--server"]
