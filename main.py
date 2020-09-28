@@ -8,7 +8,7 @@ parser.add_argument("-s", "--serve", action="store_true", dest="serve", default=
 args = parser.parse_args()
 
 env = DerkEnv(
-  server_port=8789 if args.serve else None
+  mode="server" if args.serve else None
 )
 
 while True:
