@@ -1,4 +1,4 @@
-from gym_derk.envs import DerkEnv, EpisodeResetError
+from gym_derk.envs import DerkEnv, ConnectionLostError
 from argparse import ArgumentParser
 import logging
 logging.basicConfig(level = logging.INFO)
@@ -21,6 +21,6 @@ while True:
       if all(done_n):
         print("Episode finished")
         break
-  except EpisodeResetError:
+  except ConnectionLostError:
     print('Episode reset')
 env.close()
