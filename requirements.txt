@@ -1,1 +1,1 @@
-gym-derk==0.8.0
+gym-derk==0.8.1

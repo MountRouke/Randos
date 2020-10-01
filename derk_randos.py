@@ -3,8 +3,8 @@ from argparse import ArgumentParser
 import logging
 logging.basicConfig(level = logging.INFO)
 
-def main(mode="server"):
-  env = DerkEnv(mode=mode)
+def main(env_args={ "mode": "server" }):
+  env = DerkEnv(**env_args)
 
   while True:
     observation_n = env.reset()
@@ -22,7 +22,7 @@ if __name__ == "__main__":
   parser.add_argument("-c", "--connected", action="store_true", dest="connected", default=False)
   args = parser.parse_args()
   while True:
-    try: main(mode="server" if args.server else ("connected" if args.connected else None))
+    try: main({ 'mode': "server" if args.server else ("connected" if args.connected else None) })
     except ConnectionLostError: print('Connection lost')
     if not args.server:
       break
