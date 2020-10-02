@@ -23,6 +23,8 @@ if __name__ == "__main__":
   args = parser.parse_args()
   while True:
     try: main({ 'mode': "server" if args.server else ("connected" if args.connected else None) })
-    except ConnectionLostError: print('Connection lost')
+    except ConnectionLostError as err:
+      print('Connection lost')
+      err.env.close()
     if not args.server:
       break
