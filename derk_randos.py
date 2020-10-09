@@ -21,7 +21,8 @@ if __name__ == "__main__":
   if args.server:
     asyncio.get_event_loop().run_forever()
   else:
-    instance = DerkAppInstance(browser_logs=True)
+    app = DerkAppInstance(browser_logs=True)
+    asyncio.get_event_loop().run_until_complete(app.start())
     asyncio.get_event_loop().run_until_complete(
-      instance.run_session(agent_hosts='dual_local' if args.connected else 'single_local')
+      app.run_session(agent_hosts='dual_local' if args.connected else 'single_local')
     )
