@@ -2,7 +2,6 @@ from gym_derk import DerkSession, DerkAgentServer, DerkAppInstance
 import asyncio
 from argparse import ArgumentParser
 import logging
-logging.basicConfig(level = logging.INFO)
 
 async def run_session(env: DerkSession):
   while True:
@@ -12,6 +11,7 @@ async def run_session(env: DerkSession):
       await env.step(action_n)
 
 if __name__ == "__main__":
+  logging.basicConfig(level = logging.INFO)
   parser = ArgumentParser()
   parser.add_argument("-s", "--server", action="store_true", dest="server", default=False)
   parser.add_argument("-c", "--connected", action="store_true", dest="connected", default=False)
